@@ -1,5 +1,7 @@
 ﻿from fastapi.testclient import TestClient
 from main import app
+import pytest
+
 
 client = TestClient(app)
 
@@ -13,7 +15,6 @@ def test_predict_positive():
     json_data = response.json()
     assert response.status_code == 200
     assert json_data['label'] == 'POSITIVE'
-
 
 def test_predict_negative():
     response = client.post("/predict/",json={"text": "I hate machine learning!"})
