@@ -14,6 +14,6 @@
 Тест создан в отдельном файле  **test_main.py** , инструмент для автоматического запуска тестирования  -- **Github Actions**
 <hr>
 
-_Ниже представлен print screen файла  test_main.py_
+_представлен print screen файла  test_main.py_
 
 <img src="https://github.com/VoroninMaxim/project_sentiment_text_3/blob/main/Bye.jpg" height="300"/>
