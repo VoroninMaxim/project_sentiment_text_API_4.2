@@ -1,23 +1,8 @@
-﻿from fastapi.testclient import TestClient
-from main import app
+﻿from streamlit.testing.v1 import AppTest
 
-client = TestClient(app)
+def test_project_main():
+    at = AppTest.from_file("projec_main.py").run()
+    assert not at.exception
 
-def test_read_main():
-    response = client.get("/")
-    assert response.status_code == 200
-    assert response.json() == {"message": "Hello World"}
-
-def test_predict_positive():
-    response = client.post("/predict/",
-                           json={"text": "I like machine learning!"})
-    json_data = response.json()
-    assert response.status_code == 200
-    assert json_data['label'] == 'POSITIVE'
-
-def test_predict_negative():
-    response = client.post("/predict/",
-                           json={"text": "I hate machine learning!"})
-    json_data = response.json()
-    assert response.status_code == 200
-    assert json_data['label'] == 'NEGATIVE'
+    # at.text_input('text').input('text').run()
+    # assert at.warning[0].value == 'Sorry, the text did not match'
